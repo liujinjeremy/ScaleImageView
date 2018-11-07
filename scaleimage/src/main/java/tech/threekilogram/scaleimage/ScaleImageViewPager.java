@@ -23,38 +23,38 @@ public class ScaleImageViewPager extends ViewPager {
       /**
        * 当前滑动状态
        */
-      private int              mState           = ViewPager.SCROLL_STATE_IDLE;
+      private int             mState           = ViewPager.SCROLL_STATE_IDLE;
       /**
        * 记录是否触发缩放事件,如果触发缩放事件之后,那么滑动时间不在触发,直到下一次手指按下
        */
-      private boolean          isScaleHandled;
+      private boolean         isScaleHandled;
       /**
        * 记录上一次的传递给viewpager的event
        */
-      private MotionEvent      mLastMotionEvent;
+      private MotionEvent     mLastMotionEvent;
       /**
        * 记录移动距离
        */
-      private float            mDownX;
-      private float            mDownY;
-      private float            mLastX;
-      private float            mLastY;
-      private float            mDx;
-      private float            mDy;
+      private float           mDownX;
+      private float           mDownY;
+      private float           mLastX;
+      private float           mLastY;
+      private float           mDx;
+      private float           mDy;
       /**
        * 记录上一次手指抬起时间,用于双击判断
        */
-      private long             mLastUpEventTime = 0;
+      private long            mLastUpEventTime = 0;
       /**
        * 手指按下时处于idle状态时的scrollX,用于判断pager是否已经滑动,以及滑动距离
        */
-      private int              mDownIdleScrollX;
+      private int             mDownIdleScrollX;
       /**
        * 用于scale item 处于放大时,fling操作
        */
-      private Scroller         mScroller;
-      private VelocityTracker  mTracker;
-      private ScaleItemFlinger mFlinger;
+      private Scroller        mScroller;
+      private VelocityTracker mTracker;
+      private ScaleItemFling  mFling;
 
       public ScaleImageViewPager ( @NonNull Context context ) {
 
@@ -73,7 +73,7 @@ public class ScaleImageViewPager extends ViewPager {
 
             addOnPageChangeListener( new ScrollSateListener() );
             mScroller = new Scroller( getContext() );
-            mFlinger = new ScaleItemFlinger();
+            mFling = new ScaleItemFling();
       }
 
       @Override
@@ -84,10 +84,6 @@ public class ScaleImageViewPager extends ViewPager {
 
       @Override
       public boolean dispatchTouchEvent ( MotionEvent ev ) {
-
-//            if( mState == ViewPager.SCROLL_STATE_SETTLING ) {
-//                  return false;
-//            }
 
             if( ev.getAction() == MotionEvent.ACTION_DOWN ) {
                   mScroller.forceFinished( true );
@@ -235,7 +231,7 @@ public class ScaleImageViewPager extends ViewPager {
                                           float yVelocity = mTracker.getYVelocity();
                                           mTracker.recycle();
                                           mTracker = null;
-                                          mFlinger.startFling( view, xVelocity, yVelocity );
+                                          mFling.startFling( view, xVelocity, yVelocity );
                                     }
                               }
 
@@ -368,8 +364,8 @@ public class ScaleImageViewPager extends ViewPager {
 
             super.computeScroll();
 
-            if( mFlinger.computeScrollOffset() ) {
-                  mFlinger.setScaleTranslate();
+            if( mFling.computeScrollOffset() ) {
+                  mFling.setScaleTranslate();
                   invalidate();
             }
       }
@@ -491,7 +487,7 @@ public class ScaleImageViewPager extends ViewPager {
       /**
        * scale item fling
        */
-      private class ScaleItemFlinger {
+      private class ScaleItemFling {
 
             private int            mXVelocity;
             private int            mYVelocity;

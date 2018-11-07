@@ -74,16 +74,11 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
       /**
        * 保存drawable显示区域坐标
        */
-      protected RectF          mDrawableRect;
+      protected RectF mDrawableRect;
       /**
        * 保存canvas显示区域坐标
        */
-      protected Rect           mCanvasRect;
-      /**
-       * edge
-       */
-      protected EdgeEffectUtil mEdgeEffectUtil;
-      protected boolean        isEdgeEffectEnable;
+      protected Rect  mCanvasRect;
 
       public ScaleImageView ( Context context ) {
 
@@ -120,25 +115,12 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
 
             mDrawableRect = new RectF();
             mCanvasRect = new Rect();
-
-            mEdgeEffectUtil = new EdgeEffectUtil( this );
-      }
-
-      public void setEdgeEffectEnable ( boolean edgeEffectEnable ) {
-
-            isEdgeEffectEnable = edgeEffectEnable;
-      }
-
-      public boolean isEdgeEffectEnable ( ) {
-
-            return isEdgeEffectEnable;
       }
 
       @Override
       protected void onSizeChanged ( int w, int h, int oldw, int oldh ) {
 
             super.onSizeChanged( w, h, oldw, oldh );
-            mEdgeEffectUtil.setSize( w, h );
       }
 
       @Override
@@ -161,16 +143,6 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
             /* 绘制 */
             super.onDraw( canvas );
             canvas.restoreToCount( i );
-
-            if( isEdgeEffectEnable ) {
-                  mEdgeEffectUtil.onDraw( canvas );
-            }
-      }
-
-      @Nullable
-      public EdgeEffectUtil getEdgeEffectUtil ( ) {
-
-            return isEdgeEffectEnable ? mEdgeEffectUtil : null;
       }
 
       /**
