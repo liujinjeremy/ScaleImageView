@@ -13,7 +13,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
-import tech.threekilogram.pager.adapter.BaseTypePagerAdapter;
+import tech.threekilogram.scaleimage.extend.BaseTypePagerAdapter;
 
 /**
  * @author Liujin 2018-10-23:15:19
