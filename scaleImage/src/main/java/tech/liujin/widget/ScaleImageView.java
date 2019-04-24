@@ -260,8 +260,8 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
             int width = getDrawable().getIntrinsicWidth();
             int height = getDrawable().getIntrinsicHeight();
 
-            float fateWidth = canvasRect.width() / width * 1f;
-            float fateHeight = canvasRect.height() / height * 1f;
+            float fateWidth = canvasRect.width() * 1f / width;
+            float fateHeight = canvasRect.height() * 1f / height;
 
             if( fateWidth > fateHeight ) {
 
@@ -295,8 +295,8 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
             int width = getDrawable().getIntrinsicWidth();
             int height = getDrawable().getIntrinsicHeight();
 
-            float fateWidth = canvasRect.width() / width * 1f;
-            float fateHeight = canvasRect.height() / height * 1f;
+            float fateWidth = canvasRect.width() * 1f / width;
+            float fateHeight = canvasRect.height() * 1f / height;
 
             if( fateWidth > fateHeight ) {
 
@@ -330,8 +330,8 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
             int width = getDrawable().getIntrinsicWidth();
             int height = getDrawable().getIntrinsicHeight();
 
-            float fateWidth = canvasRect.width() / width * 1f;
-            float fateHeight = canvasRect.height() / height * 1f;
+            float fateWidth = canvasRect.width() * 1f / width;
+            float fateHeight = canvasRect.height() * 1f / height;
 
             if( fateWidth > fateHeight ) {
 
@@ -365,8 +365,8 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
             int width = getDrawable().getIntrinsicWidth();
             int height = getDrawable().getIntrinsicHeight();
 
-            float fateWidth = canvasRect.width() / width * 1f;
-            float fateHeight = canvasRect.height() / height * 1f;
+            float fateWidth = canvasRect.width() * 1f / width;
+            float fateHeight = canvasRect.height() * 1f / height;
 
             if( fateWidth <= fateHeight ) {
 
