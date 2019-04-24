@@ -11,16 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import tech.liujin.widget.ScaleImageViewPager;
-import tech.liujin.widget.ScaleImageViewPager.SimpleImageAdapter;
+import tech.liujin.widget.ScaleImagePager;
+import tech.liujin.widget.ScaleImagePager.SimpleImageAdapter;
 
 /**
  * @author Liujin 2018-10-23:15:22
  */
 public class ScalePagerFragment extends Fragment {
 
-      private ScaleImageViewPager mPager;
-      private FrameLayout         mRoot;
+      private ScaleImagePager mPager;
+      private FrameLayout     mRoot;
 
       public static ScalePagerFragment newInstance ( ) {
 

@@ -18,7 +18,7 @@ import tech.liujin.widget.pager.BaseTypePagerAdapter;
 /**
  * @author Liujin 2018-10-23:15:19
  */
-public class ScaleImageViewPager extends ViewPager {
+public class ScaleImagePager extends ViewPager {
 
       /**
        * 当前滑动状态
@@ -56,12 +56,12 @@ public class ScaleImageViewPager extends ViewPager {
       private VelocityTracker mTracker;
       private ScaleItemFling  mFling;
 
-      public ScaleImageViewPager ( @NonNull Context context ) {
+      public ScaleImagePager ( @NonNull Context context ) {
 
             this( context, null );
       }
 
-      public ScaleImageViewPager (
+      public ScaleImagePager (
           @NonNull Context context,
           @Nullable AttributeSet attrs ) {
 

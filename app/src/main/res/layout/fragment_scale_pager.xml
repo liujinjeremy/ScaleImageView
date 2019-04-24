@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-      <tech.liujin.widget.ScaleImageViewPager
+      <tech.liujin.widget.ScaleImagePager
           android:id="@+id/pager"
           android:layout_width="match_parent"
           android:layout_height="match_parent">
-      </tech.liujin.widget.ScaleImageViewPager>
+      </tech.liujin.widget.ScaleImagePager>
 
 </FrameLayout>
