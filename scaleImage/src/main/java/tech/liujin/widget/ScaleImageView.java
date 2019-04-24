@@ -60,7 +60,7 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
       /**
        * 是否启用触摸事件
        */
-      protected boolean isTouchEventEnabled       = false;
+      protected boolean isTouchEventEnabled       = true;
 
       /**
        * 缩放手势支持
@@ -121,6 +121,75 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
       protected void onSizeChanged ( int w, int h, int oldw, int oldh ) {
 
             super.onSizeChanged( w, h, oldw, oldh );
+      }
+
+      /**
+       * true: 手势缩放已经启用
+       */
+      public boolean isScaleGestureEnabled ( ) {
+
+            return isScaleGestureEnabled;
+      }
+
+      /**
+       * 设置手势缩放是否启用
+       *
+       * @param scaleGestureEnabled true 启用
+       */
+      public void setScaleGestureEnabled ( boolean scaleGestureEnabled ) {
+
+            isScaleGestureEnabled = scaleGestureEnabled;
+      }
+
+      /**
+       * true: 手势移动已经启用
+       */
+      public boolean isTranslateGestureEnabled ( ) {
+
+            return isTranslateGestureEnabled;
+      }
+
+      /**
+       * 设置手势移动是否启用
+       *
+       * @param translateGestureEnabled true 启用
+       */
+      public void setTranslateGestureEnabled ( boolean translateGestureEnabled ) {
+
+            isTranslateGestureEnabled = translateGestureEnabled;
+      }
+
+      public boolean isTouchEventEnabled ( ) {
+
+            return isTouchEventEnabled;
+      }
+
+      /**
+       * 是否启用touch事件
+       *
+       * @param touchEventEnabled true:启动
+       */
+      public void setTouchEventEnabled ( boolean touchEventEnabled ) {
+
+            this.isTouchEventEnabled = touchEventEnabled;
+      }
+
+      /**
+       * 处理手势
+       */
+      @SuppressLint("ClickableViewAccessibility")
+      @Override
+      public boolean onTouchEvent ( MotionEvent event ) {
+
+            if( isTouchEventEnabled ) {
+
+                  handleScaleGesture( event );
+                  handleTranslateGesture( event );
+                  super.onTouchEvent( event );
+                  return true;
+            } else {
+                  return super.onTouchEvent( event );
+            }
       }
 
       @Override
@@ -409,70 +478,6 @@ public class ScaleImageView extends android.support.v7.widget.AppCompatImageView
                 canvasRect.right + xOffset,
                 canvasRect.bottom + yOffset
             );
-      }
-
-      /**
-       * true: 手势缩放已经启用
-       */
-      public boolean isScaleGestureEnabled ( ) {
-
-            return isScaleGestureEnabled;
-      }
-
-      /**
-       * 设置手势缩放是否启用
-       *
-       * @param scaleGestureEnabled true 启用
-       */
-      public void setScaleGestureEnabled ( boolean scaleGestureEnabled ) {
-
-            isScaleGestureEnabled = scaleGestureEnabled;
-      }
-
-      /**
-       * true: 手势移动已经启用
-       */
-      public boolean isTranslateGestureEnabled ( ) {
-
-            return isTranslateGestureEnabled;
-      }
-
-      /**
-       * 设置手势移动是否启用
-       *
-       * @param translateGestureEnabled true 启用
-       */
-      public void setTranslateGestureEnabled ( boolean translateGestureEnabled ) {
-
-            isTranslateGestureEnabled = translateGestureEnabled;
-      }
-
-      /**
-       * 是否启用touch事件
-       *
-       * @param touchEventEnabled true:启动
-       */
-      public void setTouchEventEnabled ( boolean touchEventEnabled ) {
-
-            this.isTouchEventEnabled = touchEventEnabled;
-      }
-
-      /**
-       * 处理手势
-       */
-      @SuppressLint("ClickableViewAccessibility")
-      @Override
-      public boolean onTouchEvent ( MotionEvent event ) {
-
-            if( isTouchEventEnabled ) {
-
-                  handleScaleGesture( event );
-                  handleTranslateGesture( event );
-                  super.onTouchEvent( event );
-                  return true;
-            } else {
-                  return super.onTouchEvent( event );
-            }
       }
 
       /**

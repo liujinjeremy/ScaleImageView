@@ -451,7 +451,9 @@ public class ScaleImagePager extends ViewPager {
             @Override
             protected View getView ( ViewGroup container, int position, int type ) {
 
-                  return new ScaleImageView( container.getContext() );
+                  ScaleImageView scaleImageView = new ScaleImageView( container.getContext() );
+                  scaleImageView.setTouchEventEnabled( false );
+                  return scaleImageView;
             }
 
             @Override
