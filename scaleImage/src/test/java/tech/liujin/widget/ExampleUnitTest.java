@@ -1,4 +1,4 @@
-package tech.threekilogram.scaleimagelib;
+package tech.liujin.widget;
 
 import static org.junit.Assert.assertEquals;
 

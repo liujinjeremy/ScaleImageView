@@ -1,4 +1,4 @@
-package tech.threekilogram.scaleimagelib;
+package tech.liujin.scaleimagelib;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import tech.threekilogram.scaleimage.ScaleImageViewPager;
-import tech.threekilogram.scaleimage.ScaleImageViewPager.SimpleImageAdapter;
+import tech.liujin.widget.ScaleImageViewPager;
+import tech.liujin.widget.ScaleImageViewPager.SimpleImageAdapter;
 
 /**
  * @author Liujin 2018-10-23:15:22

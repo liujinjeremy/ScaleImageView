@@ -1,4 +1,4 @@
-package tech.threekilogram.scaleimagelib;
+package tech.liujin.scaleimagelib;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

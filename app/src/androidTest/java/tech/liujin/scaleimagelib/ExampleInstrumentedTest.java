@@ -1,4 +1,4 @@
-package tech.threekilogram.scaleimagelib;
+package tech.liujin.scaleimagelib;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
             // Context of the app under test.
             Context appContext = InstrumentationRegistry.getTargetContext();
 
-            assertEquals( "tech.threekilogram.scaleimagelib", appContext.getPackageName() );
+            assertEquals( "tech.liujin.scaleimagelib", appContext.getPackageName() );
       }
 }

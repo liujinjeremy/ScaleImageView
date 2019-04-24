@@ -1,1 +1,1 @@
-include ':app', ':scaleimage'
+include ':app', ':scaleImage'
