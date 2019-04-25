@@ -3,7 +3,7 @@
 ### 引入
 
 ```
-implementation 'tech.liujin:scaleimage:1.0.1'
+implementation 'tech.liujin:scaleImage:1.0.1'
 ```
 
 ![](img/1.gif)
