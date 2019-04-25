@@ -393,6 +393,9 @@ public class ScaleImagePager extends ViewPager {
        */
       public static abstract class BaseImageAdapter extends BaseTypePagerAdapter {
 
+            /**
+             * 当前页面是包含{@link ScaleImageView}的类型
+             */
             public static final int TYPE_SCALE_IMAGE = 0;
 
             @Override
